@@ -78,9 +78,9 @@ class Game:
             pyxel.quit()
 
         if not self.is_game_over:
-            if pyxel.btn(pyxel.KEY_LEFT):
+            if pyxel.btn(pyxel.KEY_LEFT) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT, 1, 1):
                 self.papi.speed_x = -2
-            elif pyxel.btn(pyxel.KEY_RIGHT):
+            elif pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT, 1, 1):
                 self.papi.speed_x = 2
             else:
                 self.papi.speed_x = 0
@@ -122,7 +122,7 @@ class Game:
                 self.is_game_over = True
 
         else:
-            if pyxel.btnp(pyxel.KEY_SPACE):
+            if pyxel.btnp(pyxel.KEY_SPACE) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A):
                 self.reset_game()
 
     def draw(self):
